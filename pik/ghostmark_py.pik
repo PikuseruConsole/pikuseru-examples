@@ -1,4 +1,4 @@
-unicorn / python cartridge
+pikuseru / python cartridge
 version 1
 __width_256__
 __height_256__
@@ -41,7 +41,7 @@ def _init():
 def _update():
 
     #    add 500 more
-    unicorn_print("(X) add 500 more", 8, mode_width() - 20, 7)
+    pikuseru_print("(X) add 500 more", 8, mode_width() - 20, 7)
 
     if btnp(5):
         for i in range(0, 500):
@@ -49,7 +49,7 @@ def _update():
 
 def _draw():
     cls()
-    unicorn_print("dots :" + str(len(Items)), mode_width() - 60, 0, 7)
+    pikuseru_print("dots :" + str(len(Items)), mode_width() - 60, 0, 7)
 
     for item in Items:
         item.update()

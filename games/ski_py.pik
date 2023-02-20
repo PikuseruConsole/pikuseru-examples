@@ -1,4 +1,4 @@
-Saved by Unicorn Console https://github.com/Gigoteur/UnicornConsole
+Saved by Pikuseru Console https://github.com/Gigoteur/PikuseruConsole
 Version "0.1.0"
 __python__
 
@@ -453,7 +453,7 @@ def _draw():
         for tree in trees:
             tree.draw()
 
-        unicorn_print(str(config.dist), 110, 5, 12)
+        pikuseru_print(str(config.dist), 110, 5, 12)
 __palette__
 __gfx__
 0000000000055000000ee00000000000072772700006000000006000000360000000000044ee000000009000009900000000990000ddddd000d0000000000d00

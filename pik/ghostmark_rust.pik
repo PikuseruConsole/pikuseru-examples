@@ -1,9 +1,9 @@
-unicorn / python cartridge
+pikuseru / python cartridge
 version 1
 __width_512__
 __height_512__
 __code__
-..\unicorn-examples\corn\ghostmark.wasm
+..\pikuseru-examples\corn\ghostmark.wasm
 __gfx__
 000000000111111002222220033333300444444005555550066666600777777008888880099999900aaaaaa00bbbbbb00cccccc00dddddd00eeeeee00ffffff0
 05700570157115712572257235733573457445745575557565766576757775778578857895799579a57aa57ab57bb57bc57cc57cd57dd57de57ee57ef57ff57f

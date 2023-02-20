@@ -1,4 +1,4 @@
-unicorn / python cartridge
+pikuseru / python cartridge
 version 1
 __python__
 
@@ -20,7 +20,7 @@ class Button(object):
 
     def draw(self):
         rectfill(self.x1, self.y1, self.x2, self.y2, self.color)
-        unicorn_print(self.text, self.x1+1, self.y1+1, 2)
+        pikuseru_print(self.text, self.x1+1, self.y1+1, 2)
 
     def update(self, x, y):
         self.clicked = False
@@ -126,7 +126,7 @@ def _draw():
     for button in buttons:
         button.draw()
 
-    unicorn_print("Demos " + demos[idx_demo][0], 0, 120, 2)
+    pikuseru_print("Demos " + demos[idx_demo][0], 0, 120, 2)
 
 
 __gfx__

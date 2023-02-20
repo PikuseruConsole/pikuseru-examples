@@ -20,7 +20,7 @@ class Button(object):
 
     def draw(self):
         rectfill(self.x1, self.y1, self.x2, self.y2, self.color)
-        unicorn_print(self.text, self.x1, self.y1+1, 2)
+        pikuseru_print(self.text, self.x1, self.y1+1, 2)
 
     def update(self, x, y):
         self.clicked = False
@@ -222,7 +222,7 @@ class RadBot(object):
             y = 64+sin(i+self.T)*24
             color = 12+y%4
             circfill(x, y, y/12, color)
-            unicorn_print("rad bot!", 40, 60, color)
+            pikuseru_print("rad bot!", 40, 60, color)
 
 # see https://itch.io/t/69170/from-pico-8-to-tic-80-another-port-of-nice-mini-demo-
 class Ripple(object):
@@ -441,7 +441,7 @@ class Tweetjam_8(object):
 
     def draw(self):
         for _ in range(0,1000):
-            t=2.4+sin(unicorn_time()/5)*2
+            t=2.4+sin(pikuseru_time()/5)*2
             j,k=t*18,rnd(1)
             circfill(rnd(192),rnd(192),1,1)
             circfill(self.z+cos(k)*j,self.z+sin(k)*j,t*2,t*3+k*3)
@@ -548,7 +548,7 @@ class Tweetjam_13(object):
             x = rnd(128)
             y = rnd(128)
 
-            a=atan2(x-64,y-64)-cos(unicorn_time()/10)+.5
+            a=atan2(x-64,y-64)-cos(pikuseru_time()/10)+.5
             c=pget(x+3*cos(a),y+3*sin(a))
             circ(x,y,1,(c+rnd(1.05))%8+8)
 
@@ -857,7 +857,7 @@ def _draw():
     for button in buttons:
         button.draw()
 
-    unicorn_print("Demos " + demos[idx_demo][0], 0, 120, 2)
+    pikuseru_print("Demos " + demos[idx_demo][0], 0, 120, 2)
 
 __gfx__
 10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000

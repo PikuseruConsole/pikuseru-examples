@@ -1,4 +1,4 @@
-unicorn / python cartridge
+pikuseru / python cartridge
 version 1
 __python__
 
@@ -33,7 +33,7 @@ def img_to_rgb(data):
 def _init():
     cls()
     rectfill(0, 0, 127, 127, 7)
-    j = json.load(open("../unicorn-examples/games/assets/flappy.dsheet"))
+    j = json.load(open("../pikuseru-examples/games/assets/flappy.dsheet"))
     for image in j['images']:
         data = io.BytesIO(base64.b64decode(j['images'][image]['src'][22:]))
         data, width, height = img_to_rgb(data)
@@ -49,7 +49,7 @@ def _update():
 def _draw():
     global T
     cls()
-    idx = unicorn_utime() % len(ANIM_BIRD)
+    idx = pikuseru_utime() % len(ANIM_BIRD)
     image, width, height = ANIM_BIRD[idx]
     spr(idx, 64, 64, width, height, dynamic=True)
     

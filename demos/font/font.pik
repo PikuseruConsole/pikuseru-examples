@@ -1,4 +1,4 @@
-unicorn / python cartridge
+pikuseru / python cartridge
 version 1
 __python__
 
@@ -26,7 +26,7 @@ frame = 0
 font_index = 0
 
 msgs = [
-    ("Unicorn Console", GREEN),
+    ("Pikuseru Console", GREEN),
     ("ABCDEFGHIJKLMNOP", RED),
     ("QRSTUVWXYZ", RED),
     ("abcdefghijklmnop", RED),
@@ -58,10 +58,10 @@ def _draw():
     cls()
     font(FONTS[font_index])
     y = 0
-    unicorn_print("Font: %s" % FONTS[font_index], 0, y, WHITE)
+    pikuseru_print("Font: %s" % FONTS[font_index], 0, y, WHITE)
     y += LINE_HEIGHT
     for msg,color in msgs:
-        unicorn_print(msg, 0, y, color)
+        pikuseru_print(msg, 0, y, color)
         y += LINE_HEIGHT
 __gfx__
 __gff__

@@ -1,4 +1,4 @@
-Saved by Unicorn Console https://github.com/Gigoteur/UnicornConsole
+Saved by Pikuseru Console https://github.com/Gigoteur/PikuseruConsole
 Version "0.1.0"
 __python__
 
@@ -164,7 +164,7 @@ def _draw():
                 spr(8, x*8, y*8)
                 if x == ROW and LAST_TRIG != ROW:
                     trigger_note(BUTTON_TO_NOTES[y], 2)
-                    unicorn_print(notes_r[BUTTON_TO_NOTES[y]], 0, 100, 5)
+                    pikuseru_print(notes_r[BUTTON_TO_NOTES[y]], 0, 100, 5)
             else:
                 spr(default_color, x*8, y*8)
     
