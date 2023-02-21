@@ -1,8 +1,24 @@
 Saved by Pikuseru Console https://github.com/PikuseruConsole/pikuseru
 Version "0.1.0"
-__width_256__
-__height_256__
+__width_200__
+__height_150__
 __python__
+
+FRAME_COUNT = 0
+
+def test_rect(x, y):
+    pikuseru_print("rect(x0,y0,x1,y1,col)", x, y, 7)
+    x += 4
+    y += 16
+    for i in range(8):
+        rect(x + i * 8, y - i, x + i * 8 + i + 1, y + 1, i + 8)
+
+def test_rectfill(x, y):
+    pikuseru_print("rectfill(x0,y0,x1,y1,col)", x, y, 7)
+    x += 4
+    y += 16
+    for i in range(8):
+        rectfill(x + i * 8, y - i, x + i * 8 + i + 1, y + 1, i + 8)
 
 def test_circ(x, y):
     pikuseru_print("circ(x,y,r,col)", x, y, 7)
@@ -18,6 +34,51 @@ def test_circfill(x, y):
     for i in range(8):
         circfill(x + i * 8, y, i, i + 8)
 
+def test_pset(x, y):
+    pikuseru_print("pset(x,y,col)", x, y, 7)
+    x += 4
+    y += 10
+    for i in range(16):
+        pset(x + i * 2, y, i)
+
+def test_line(x, y):
+    pikuseru_print("line(x1,y1,x2,y2,col)", x, y, 7)
+    x += 4
+    y += 9
+    col = 5
+    for i in range(3):
+        line(x, y + i * 8, x + 48, y + i * 8, col)
+        col += 1
+    for i in range(4):
+        line(x + i * 16, y, x + i * 16, y + 16, col)
+        col += 1
+    for i in range(4):
+        line(x + i * 16, y, x + (3 - i) * 16, y + 16, col)
+        col += 1
+
+def test_clip():
+    global FRAME_COUNT
+
+    clip()
+    x = sin(FRAME_COUNT * 1.14) * 39 + 40
+    y = sin(FRAME_COUNT * 1.71) * 29 + 30
+    w = 120
+    h = 90
+
+    x = math.floor(x)
+    y = math.floor(y)
+    w = math.floor(w)
+    h = math.floor(h)
+
+    pikuseru_print("clip({}, {}, {}, {})".format(x, y, w, h), x, y - 8, 14)
+    rectfill(x - 1, y - 1, x - 1 + w + 2, y - 1 + h + 2, 14)
+    clip(x, y, w, h)
+
+def test_cls(x, y):
+    cls(5)
+    test_clip()
+    pikuseru_print("cls(col)", x, y, 7)
+
 def _init():
     pass
 
@@ -25,9 +86,25 @@ def _update():
     pass
 
 def _draw():
-    cls()
+    global FRAME_COUNT
+
+    FRAME_COUNT += 0.01
+
+    pal(5, 2)
+    pal(12, 7)
+    pal(7, 10)
+
+
+    test_cls(6, 6)
+    test_pset(6, 20)
+    test_line(106, 6)
+    test_rect(6, 38)
+    test_rectfill(106, 38)
     test_circ(6, 61)
     test_circfill(106, 61)
+
+    pal()
+
 
 __palette__
 __gfx__

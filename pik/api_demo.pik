@@ -164,6 +164,27 @@ class SSpr(object):
         sspr(0, 0, 32, 32, 0, 64, 64, 64, flip_y=True)
         sspr(0, 0, 32, 32, 64, 64, 64, 64, flip_x=True, flip_y=True)
       
+class Logo(object):
+    def __init__(self):
+        self.T = 0
+        self.idx = 7
+
+    def init(self):
+        cls()
+
+    def update(self):
+        self.T += 1
+
+    def draw(self):
+        cls()
+
+        if self.T%10 == 1:
+            if self.idx == 7:
+                self.idx = 8
+            else:
+                self.idx = 7
+
+        sspr(self.idx*8, 0, 8, 8, 0, 0, 128, 128)
 
 class Camera(object):
     def __init__(self):
@@ -368,6 +389,7 @@ class Pal(object):
 
 idx_demo = 0
 demos = [
+    ["logo", [Logo()]],
     ["rect", [Rect()]],
     ["circ", [Circ()]],
     ["trigon", [Trigon()]],
