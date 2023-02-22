@@ -5,6 +5,7 @@ __height_150__
 __python__
 
 FRAME_COUNT = 0
+T= 0
 
 def test_rect(x, y):
     pikuseru_print("rect(x0,y0,x1,y1,col)", x, y, 7)
@@ -70,14 +71,33 @@ def test_clip():
     w = math.floor(w)
     h = math.floor(h)
 
-    pikuseru_print("clip({}, {}, {}, {})".format(x, y, w, h), x, y - 8, 14)
-    rectfill(x - 1, y - 1, x - 1 + w + 2, y - 1 + h + 2, 14)
+    pikuseru_print("clip({}, {}, {}, {})".format(x, y, w, h), x, y - 8, 12)
+    rectfill(x - 1, y - 1, x - 1 + w + 2, y - 1 + h + 2, 12)
     clip(x, y, w, h)
 
 def test_cls(x, y):
     cls(5)
     test_clip()
     pikuseru_print("cls(col)", x, y, 7)
+
+def test_spr(x, y):
+    global FRAME_COUNT
+
+    pikuseru_print("spr(n, x, y, [w, h], [flip_x], [flip_y], \n [angle], [zoom])", x, y, 7)
+    x += 4
+    y += 9
+
+    spr(0, x, y, 6, 6)
+    spr(0, x+8, y, 6, 6, flip_x=True)
+    spr(0, x, y+8, 6, 6, flip_y=True)
+    spr(0, x+8, y+8, 6, 6, flip_x=True, flip_y=True)
+
+    spr(7, x+100, y+24, 1, 1, False, False, 0.0, 3.0)
+
+    if pikuseru_mtime()%20 == 1:
+        spr(7, x+50, y+24, 1, 1)
+    else:
+        spr(8, x+50, y+24, 1, 1)
 
 def _init():
     pass
@@ -88,11 +108,7 @@ def _update():
 def _draw():
     global FRAME_COUNT
 
-    FRAME_COUNT += 0.01
-
-    pal(5, 2)
-    pal(12, 7)
-    pal(7, 10)
+    FRAME_COUNT += 0.004
 
 
     test_cls(6, 6)
@@ -102,9 +118,9 @@ def _draw():
     test_rectfill(106, 38)
     test_circ(6, 61)
     test_circfill(106, 61)
+    test_spr(6, 88)
 
     pal()
-
 
 __palette__
 __gfx__
