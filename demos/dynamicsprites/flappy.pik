@@ -33,7 +33,7 @@ def img_to_rgb(data):
 def _init():
     cls()
     rectfill(0, 0, 127, 127, 7)
-    j = json.load(open("../pikuseru-examples/games/assets/flappy.dsheet"))
+    j = json.load(open("../pikuseru-examples/dynamicsprites/assets/flappy.dsheet"))
     for image in j['images']:
         data = io.BytesIO(base64.b64decode(j['images'][image]['src'][22:]))
         data, width, height = img_to_rgb(data)
